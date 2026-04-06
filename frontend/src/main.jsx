@@ -8,8 +8,8 @@ import "./index.css";
 
 
 const config = {
-  signInRedirectURL: "https://lab-10-1-gdwf.onrender.com/",
-  signOutRedirectURL: "https://lab-10-1-gdwf.onrender.com/",
+  signInRedirectURL: "https://lab-10-1-wi1f.onrender.com",
+  signOutRedirectURL: "https://lab-10-1-wi1f.onrender.com",
   clientID: "7IM589V4c9vF96f_aDoGs46fLO8a",
   baseUrl: "https://api.asgardeo.io/t/fullstackweb",
 };
