@@ -28,10 +28,10 @@ async function authMiddleware(req, res, next) {
     req.userId = payload.sub; 
     next();
   } catch (err) {
-    console.error(err);
-    res.status(401).json({ error: "Invalid or expired token" });
+  console.error("JWT ERROR:", err);
+  res.status(401).json({ error: "Invalid or expired token" });
   }
-}
+};
 
 const DB_SCHEMA = process.env.DB_SCHEMA || "app";
 const useSsl = process.env.PGSSLMODE === "require";
@@ -59,8 +59,7 @@ const sequelize = new Sequelize(
     define: {
       schema: DB_SCHEMA,
     },
-  }
-);
+  });
 
 const Puppies = sequelize.define(
   "puppies",
@@ -69,7 +68,7 @@ const Puppies = sequelize.define(
     name: { type: DataTypes.TEXT, allowNull: false },
     breed: { type: DataTypes.TEXT, allowNull: false },
     age: { type: DataTypes.INTEGER, allowNull: false },
-    user_id: { type: DataTypes.STRING, allowNull: false }, // ⭐ row-level security
+    user_id: { type: DataTypes.STRING, allowNull: false }, 
   },
   {
     schema: DB_SCHEMA,
